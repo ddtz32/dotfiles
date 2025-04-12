@@ -3,7 +3,7 @@ vim.opt.relativenumber = true
 
 -- highlight current line
 vim.opt.cursorline = true
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 -- expand tab to white space
 vim.opt.tabstop = 2
@@ -12,7 +12,7 @@ vim.opt.expandtab = true
 
 -- show white space
 vim.opt.list = true
-vim.opt.listchars = { space = '·' }
+vim.opt.listchars = { space = "·", tab = "··" }
 
 vim.opt.autoread = true
 
