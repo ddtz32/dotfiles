@@ -1,0 +1,15 @@
+python
+import sys 
+sys.path.insert(0, '/usr/share/gcc/python')
+from libstdcxx.v6.printers import register_libstdcxx_printers
+register_libstdcxx_printers (None)
+end
+
+# project configurations
+add-auto-load-safe-path ~/workspace/llvm-myriscv
+
+# gdb-dashboard settings
+dashboard -enabled off
+dashboard -style syntax_highlighting 'one-dark'
+dashboard -layout source
+dashboard source -style height 0

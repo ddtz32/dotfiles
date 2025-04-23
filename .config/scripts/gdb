@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+all_gdbs=($(which -a gdb | uniq ))
+
+if (( ${#all_gdbs[@]} < 2 )); then
+  echo "Error: gdb not found" >&2
+  exit 1
+fi
+
+gdb="${all_gdbs[1]}"
+
+if [[ -n "$TMUX" ]]; then
+  if ! tmux list-windows -F "#W" | grep -Fxq "debug"; then
+    tmux new-window -n "debug"
+  else
+    tmux select-window -t ":debug"
+  fi
+
+  if (( $(tmux list-panes | wc -l) == 1 )); then
+    tmux split-window -h
+  else
+    tmux select-pane -t 2
+  fi
+
+  tty="$(tmux display-message -p '#{pane_tty}')"
+  tmux select-pane -t 1
+
+  cmd=("$gdb" -ex "dashboard -enabled on" -ex "dashboard source -output $tty" "$@")
+  cmd_tmux=$(printf '\"%s\" ' "${cmd[@]}")
+  exec tmux send-keys -t "debug.1" "$cmd_tmux" C-m
+else
+  exec "$gdb" "$@"
+fi
