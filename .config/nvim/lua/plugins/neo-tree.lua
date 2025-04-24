@@ -1,3 +1,5 @@
+local last_win
+
 ---@type LazySpec
 return {
   "nvim-neo-tree/neo-tree.nvim",
@@ -9,13 +11,28 @@ return {
   },
   cmd = "Neotree",
   keys = {
-    { "<Leader>e", ":Neotree toggle reveal<CR>", desc = "Toggle Exploer" },
+    {
+      "<Leader>e",
+      function()
+        if vim.bo.filetype == "neo-tree" then
+          last_win = nil
+        else
+          last_win = vim.api.nvim_get_current_win()
+        end
+        vim.cmd "Neotree toggle reveal"
+      end,
+      desc = "Toggle Exploer",
+    },
     {
       "<Leader>o",
       function()
         if vim.bo.filetype == "neo-tree" then
-          vim.cmd.wincmd "p"
+          if last_win and vim.api.nvim_win_is_valid(last_win) then
+            vim.api.nvim_set_current_win(last_win)
+            last_win = nil
+          end
         else
+          last_win = vim.api.nvim_get_current_win()
           vim.cmd.Neotree "focus"
         end
       end,
