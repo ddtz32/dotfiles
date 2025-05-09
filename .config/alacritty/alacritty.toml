@@ -1,0 +1,30 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+dimensions = { columns = 100, lines = 25 }
+padding = { x = 5, y = 5 }
+dynamic_padding = true
+decorations = "Buttonless"
+opacity = 0.8
+blur = true
+option_as_alt = 'Both'
+
+[font]
+normal = { family = "SpaceMono Nerd Font", style = "Regular" }
+bold = { family = "SpaceMono Nerd Font", style = "Bold" }
+italic = { family = "SpaceMono Nerd Font", style = "Italic" }
+bold_italic = { family = "SpaceMono Nerd Font", style = "Bold Italic" }
+size = 20
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[general]
+import = [
+  "~/.local/share/nvim/lazy/tokyonight.nvim/extras/alacritty/tokyonight_night.toml"
+]
+
