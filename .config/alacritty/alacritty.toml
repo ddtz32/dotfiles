@@ -23,6 +23,11 @@ save_to_clipboard = true
 [cursor]
 style = { shape = "Block", blinking = "On" }
 
+[keyboard]
+bindings = [
+  { key = "Slash", mods = "Control", chars = "\u001f" }
+]
+
 [general]
 import = [
   "~/.local/share/nvim/lazy/tokyonight.nvim/extras/alacritty/tokyonight_night.toml"
