@@ -7,3 +7,15 @@
 [submodule ".config/catppuccin/alacritty"]
 	path = .config/catppuccin/alacritty
 	url = https://github.com/catppuccin/alacritty.git
+[submodule ".config/catppuccin/fzf"]
+	path = .config/catppuccin/fzf
+	url = https://github.com/catppuccin/fzf.git
+[submodule ".config/zsh/plugins/fzf-tab"]
+	path = .config/zsh/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab.git
+[submodule ".config/zsh/plugins/bd"]
+	path = .config/zsh/plugins/bd
+	url = https://github.com/Tarrasch/zsh-bd.git
+[submodule ".config/catppuccin/zsh-syntax-highlighting"]
+	path = .config/catppuccin/zsh-syntax-highlighting
+	url = https://github.com/catppuccin/zsh-syntax-highlighting.git
