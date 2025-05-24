@@ -31,6 +31,6 @@ bindings = [
 
 [general]
 import = [
-  "~/.local/share/nvim/lazy/tokyonight.nvim/extras/alacritty/tokyonight_night.toml"
+  "~/.config/catppuccin/alacritty/catppuccin-mocha.toml"
 ]
 
