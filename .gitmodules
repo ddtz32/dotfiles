@@ -13,3 +13,9 @@
 [submodule "zsh/plugins/bd"]
 	path = zsh/plugins/bd
 	url = https://github.com/Tarrasch/zsh-bd.git
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:ddtz32/neovim-lazyvim.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git

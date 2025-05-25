@@ -6,6 +6,8 @@ setopt globdots
 # alias
 alias ls='ls --color=auto'
 alias la='ls --color=auto -A'
+alias vim='nvim'
+alias vi='nvim'
 
 # directory stack
 setopt AUTO_PUSHD                                 # push current directory
