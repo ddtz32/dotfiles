@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+# Because Git submodule commands cannot operate without a work tree, they must
+# be run from within $HOME (assuming this is the root of your dotfiles)
+cd $XDG_CONFIG_HOME
+
+echo "init submodules"
+yadm submodule update --init --recursive
+
+# zsh
+if [ -f "../.zshenv" ]; then
+  echo "remove ~/.zshenv"
+  rm ../.zshenv
+fi
+echo 'link ~/.zshenv to $XDG_CONFIG_HOME/zsh/.zshenv'
+ln -s $XDG_CONFIG_HOME/zsh/.zshenv $HOME/.zshenv            # .zshrc must in ~
+# remove bg color in catppuccin theme since alacritty bg is transparent
+if [ -f "./catppuccin/catppuccin-fzf-macha.sh" ]; then
+  echo 'remove $XDG_CONFIG_HOME/catppuccin/catppuccin-fzf-macha.sh'
+  rm catppuccin/catppuccin-fzf-macha.sh
+fi
+echo 'generate $XDG_CONFIG_HOME/catppuccin/catppuccin-fzf-macha.sh from $XDG_CONFIG_HOME/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh'
+sed '2d' catppuccin/fzf/themes/catppuccin-fzf-mocha.sh > catppuccin/catppuccin-fzf-mocha.sh
+
+# go back to original directory
+cd -
