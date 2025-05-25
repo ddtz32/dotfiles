@@ -116,6 +116,12 @@ bindkey '^Y' autosuggest-accept
 eval "$(starship init zsh)"
 
 # yadm completion takes long time
-# __git_files () {
-#   _wanted files expl 'local files' _files 
-# }
+function _yadm-add(){
+  _ls
+  # yadm_path="$(yadm rev-parse --show-toplevel)"
+  # yadm_options=$(yadm status --porcelain=v1 |
+  #     awk -v yadm_path=${yadm_path} '{printf "%s/\"%s\"\\:\"%s\" ",  yadm_path, $2, $1 }' )
+  # _alternative \
+  #   "args:custom arg:(($yadm_options))" \
+  #   'files:filename:_files'
+}

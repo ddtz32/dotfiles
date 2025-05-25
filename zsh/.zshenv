@@ -16,6 +16,12 @@ export HISTFILE="$ZDOTDIR/.zhistory"    # history file
 export HISTSIZE=10000                   # maximum events for internal history
 export SAVEHIST=10000                   # maximum events in history file
 
+# zsh-z
+export _Z_DATA="$XDG_DATA_HOME/z"
+
+# tldr
+export TLDR_CACHE_DIR="$XDG_DATA_HOME"
+
 # PATH
 export PATH="$PATH:/opt/homebrew/opt/llvm/bin"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
