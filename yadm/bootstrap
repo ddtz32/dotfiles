@@ -13,11 +13,13 @@ cd "$XDG_CONFIG_HOME" || {
 
 echo "init submodules"
 yadm submodule update --init --recursive
+echo "init submodules done" && echo
 
 # zsh
-if [ -f "../.zshenv" ]; then
+echo "init zsh"
+if [ -f "$HOME/.zshenv" ]; then
   echo "remove ~/.zshenv"
-  rm ../.zshenv
+  rm "$HOME/.zshenv"
 fi
 echo "link ~/.zshenv to \$XDG_CONFIG_HOME/zsh/.zshenv"
 ln -s "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv" # .zshrc must in ~
@@ -28,6 +30,17 @@ if [ -f "./catppuccin/catppuccin-fzf-macha.sh" ]; then
 fi
 echo "generate \$XDG_CONFIG_HOME/catppuccin/catppuccin-fzf-macha.sh from \$XDG_CONFIG_HOME/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh"
 sed '2d' catppuccin/fzf/themes/catppuccin-fzf-mocha.sh >catppuccin/catppuccin-fzf-mocha.sh
+echo "init zsh done" && echo
+
+# fd
+echo "init fd"
+if [ -f "$HOME/.fdignore" ]; then
+  echo "remove ~/.fdignore"
+  rm "$HOME/.fdignore"
+fi
+echo "link ~/.fdignore to \$XDG_CONFIG_HOME/fdignore"
+ln -s "$XDG_CONFIG_HOME/fdignore" "$HOME/.fdignore" # .fdignore must in ~
+echo "init fd done" && echo
 
 # go back to original directory
 cd - || {
