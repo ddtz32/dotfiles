@@ -25,3 +25,8 @@ export TLDR_CACHE_DIR="$XDG_DATA_HOME"
 # PATH
 export PATH="$PATH:/opt/homebrew/opt/llvm/bin"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"
+
+# LLVM
+export LLVM_DIR="$HOME/workspace/llvm-myriscv"
+
